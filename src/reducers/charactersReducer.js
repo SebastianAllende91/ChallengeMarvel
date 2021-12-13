@@ -4,9 +4,10 @@ const initialState = {
   loading: true,
   personajes: [],
   personajeSelect: {},
+  personajesFilter: [],
 };
 
-const PersonajesReducers = (state = initialState, action) => {
+const CharactersReducers = (state = initialState, action) => {
   switch (action.type) {
     case TYPES.GET_CHARACTERS:
       return {
@@ -25,9 +26,16 @@ const PersonajesReducers = (state = initialState, action) => {
         personajeSelect: action.payload,
         loading: false,
       };
+    case TYPES.GET_CHARACTER_NAME:
+      return {
+        ...state,
+        // personajesFilter: action.payload,
+        personajes: action.payload,
+        loading: false,
+      };
     default:
       return state;
   }
 };
 
-export default PersonajesReducers;
+export default CharactersReducers;

@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Home from "./components/pages/Home";
 import Navbar from "./components/navbar/Navbar";
 import CharactersPage from "./components/pages/CharactersPage";
@@ -28,6 +33,8 @@ function App() {
             <Route path="/comics/:id" element={<ContainerComics />} />
             <Route path="/comics" element={<Comics />} />
             <Route path="/characters/:id" element={<ConteinerCharacter />} />
+            <Route path="/:id" element={<CharactersPage />} />
+
             <Route path="/characters" element={<CharactersPage />} />
             <Route path="/" element={<Home />} />
           </Routes>

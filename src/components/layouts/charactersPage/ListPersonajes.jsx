@@ -2,22 +2,33 @@ import React, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Cards from "./Cards";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters, setLoading } from "../../../actions/PersonajesActions";
+import {
+  getCharacterGetByName,
+  getCharacters,
+  setLoading,
+} from "../../../actions/CharactersActions";
 import Progress from "../../progress/Progress";
 
-const ListadoPersonajes = () => {
+const ListadoPersonajes = ({ query, debouncedSearchName }) => {
   const dispatch = useDispatch();
 
-  const { personajes, loading } = useSelector(
-    (state) => state.PersonajesReducers
+  const { personajes, personajesFilter, loading } = useSelector(
+    (state) => state.CharactersReducers
   );
 
-  console.log(personajes);
+  console.log(query);
+
+  console.log(personajesFilter);
 
   useEffect(() => {
-    dispatch(setLoading());
-    dispatch(getCharacters());
-  }, []);
+    if (debouncedSearchName) {
+      dispatch(setLoading());
+      dispatch(getCharacterGetByName(query));
+    } else {
+      dispatch(setLoading());
+      dispatch(getCharacters());
+    }
+  }, [debouncedSearchName]);
 
   return (
     <Box
@@ -26,6 +37,7 @@ const ListadoPersonajes = () => {
         width: "100%",
         padding: "1rem",
         justifyContent: "center",
+        flexDirection: "column",
       }}
     >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

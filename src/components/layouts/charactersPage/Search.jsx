@@ -8,8 +8,8 @@ const Search = ({ search }) => {
         variant="outlined"
         type="text"
         name="SearchCharacter"
-        // onChange={(e) => onSearch(e.target.value)}
-        // value={text}
+        placeholder="Search Character..."
+        onChange={(e) => search(e.target.value)}
         style={{
           marginBottom: "2rem",
           backgroundColor: "white",

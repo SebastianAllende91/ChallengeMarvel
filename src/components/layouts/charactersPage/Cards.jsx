@@ -14,8 +14,10 @@ const Cards = ({ el }) => {
 
   const { id, name, thumbnail } = el;
 
+  const newName = name.toLowerCase().substring(0, 30);
+
   const handleId = () => {
-    navigate(`${id}`);
+    navigate(`/characters/${id}`);
   };
 
   return (
@@ -30,7 +32,7 @@ const Cards = ({ el }) => {
         <CardContent>
           <Typography gutterBottom component="div" style={{ margin: "1px" }}>
             <em>
-              <b>{name}</b>
+              <b>{newName}</b>
             </em>
           </Typography>
         </CardContent>

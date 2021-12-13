@@ -6,8 +6,6 @@ import historyImage from "../../../img/stories.jpg";
 const CardItemStories = ({ data }) => {
   const { id, title, type, description } = data;
 
-  // console.log(data);
-
   return (
     <>
       <Grid item sx={12} sm={12} md={12} className="card-item-1">

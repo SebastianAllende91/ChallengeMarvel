@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import {
   getCharacterGetById,
   setLoading,
-} from "../../../actions/PersonajesActions";
+} from "../../../actions/CharactersActions";
 import CardItem from "./CardItem";
 
 const ContainerCharacter = () => {
@@ -13,7 +13,7 @@ const ContainerCharacter = () => {
   let params = useParams();
   let numberId = Number(params.id);
 
-  const { personajeSelect } = useSelector((state) => state.PersonajesReducers);
+  const { personajeSelect } = useSelector((state) => state.CharactersReducers);
 
   useEffect(() => {
     dispatch(setLoading());

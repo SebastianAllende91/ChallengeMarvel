@@ -32,3 +32,16 @@ export const getCharacterGetById = (values) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const getCharacterGetByName = (values) => async (dispatch) => {
+  try {
+    const { data } = await ProductService.characterGetName(values);
+
+    dispatch({
+      type: TYPES.GET_CHARACTER_NAME,
+      payload: data.data.results,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

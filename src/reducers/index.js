@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import PersonajesReducers from "./personajesReducer";
+import CharactersReducers from "./charactersReducer";
 import ComicsReducer from "./comicsReducer";
 import SeriesReducer from "./seriesReducer";
 import StoriesReducer from "./storiesReducer";
 
 const rootReducer = combineReducers({
-  PersonajesReducers,
+  CharactersReducers,
   ComicsReducer,
   SeriesReducer,
   StoriesReducer,

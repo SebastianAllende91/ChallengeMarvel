@@ -14,6 +14,10 @@ const characterGetById = (id) => {
   return http.get(`/${characters}/${id}?${apiKey}`);
 };
 
+const characterGetName = (name) => {
+  return http.get(`/${characters}?nameStartsWith=${name}&${apiKey}`);
+};
+
 const getComics = () => {
   return http.get(`/${comics}?${apiKey}`);
 };
@@ -41,6 +45,7 @@ const storieGetById = (id) => {
 const ProductService = {
   getCharacters,
   characterGetById,
+  characterGetName,
   getComics,
   comicGetById,
   getSeries,
